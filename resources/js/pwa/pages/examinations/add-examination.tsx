@@ -19,6 +19,8 @@ type AddExaminationForm = {
     hdl: number;
     ldl: number;
     uric_acid: number;
+    systolic: number;
+    diastolic: number;
     recorded_at: string;
     lab_document: File | null;
 };
@@ -40,6 +42,8 @@ export default function AddExamination({ user }: Props) {
         hdl: 0,
         ldl: 0,
         uric_acid: 0,
+        systolic: 0,
+        diastolic: 0,
         recorded_at: '',
         lab_document: null,
     });
@@ -306,6 +310,39 @@ export default function AddExamination({ user }: Props) {
                                     placeholder="3.5-7.2 (pria), 2.6-6.0 (wanita)"
                                 />
                                 <InputError message={errors.uric_acid} />
+                            </div>
+                        </div>
+
+                        {/* Blood Pressure / Tensi Meter */}
+                        <div className="space-y-4">
+                            <h2 className="text-lg font-semibold text-gray-800 border-b pb-2">Pemeriksaan Tekanan Darah (Tensi)</h2>
+                            <div className="grid gap-4 md:grid-cols-2">
+                                <div className="grid gap-2">
+                                    <Label htmlFor="systolic">Tekanan Darah Sistolik (mmHg)</Label>
+                                    <Input
+                                        id="systolic"
+                                        type="number"
+                                        min="0"
+                                        value={data.systolic || ''}
+                                        onChange={(e) => setData('systolic', Number(e.target.value))}
+                                        disabled={processing}
+                                        placeholder="Contoh: 120"
+                                    />
+                                    <InputError message={errors.systolic as string} />
+                                </div>
+                                <div className="grid gap-2">
+                                    <Label htmlFor="diastolic">Tekanan Darah Diastolik (mmHg)</Label>
+                                    <Input
+                                        id="diastolic"
+                                        type="number"
+                                        min="0"
+                                        value={data.diastolic || ''}
+                                        onChange={(e) => setData('diastolic', Number(e.target.value))}
+                                        disabled={processing}
+                                        placeholder="Contoh: 80"
+                                    />
+                                    <InputError message={errors.diastolic as string} />
+                                </div>
                             </div>
                         </div>
 

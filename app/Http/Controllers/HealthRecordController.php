@@ -68,6 +68,8 @@ class HealthRecordController extends Controller
                 'hdl' => 'nullable|numeric|min:0|max:999.99',
                 'ldl' => 'nullable|numeric|min:0|max:999.99',
                 'uric_acid' => 'nullable|numeric|min:0|max:999.99',
+                'systolic' => 'nullable|numeric|min:0|max:300',
+                'diastolic' => 'nullable|numeric|min:0|max:300',
                 'recorded_at' => 'required|date',
                 'lab_document' => 'nullable|file|mimes:jpeg,jpg,png,pdf|max:5120', // 5MB max
             ], [
@@ -89,7 +91,9 @@ class HealthRecordController extends Controller
                 'triglycerides',
                 'hdl',
                 'ldl',
-                'uric_acid'
+                'uric_acid',
+                'systolic',
+                'diastolic'
             ];
 
             $hasValues = false;
@@ -152,6 +156,8 @@ class HealthRecordController extends Controller
                 'hdl' => $validated['hdl'] ?: null,
                 'ldl' => $validated['ldl'] ?: null,
                 'uric_acid' => $validated['uric_acid'] ?: null,
+                'systolic' => $validated['systolic'] ?: null,
+                'diastolic' => $validated['diastolic'] ?: null,
                 'recorded_at' => $validated['recorded_at'],
                 'type_document' => $documentType,
                 'lab_document' => $documentPath,
@@ -222,6 +228,8 @@ class HealthRecordController extends Controller
                 'hdl' => 'nullable|numeric|min:0|max:999.99',
                 'ldl' => 'nullable|numeric|min:0|max:999.99',
                 'uric_acid' => 'nullable|numeric|min:0|max:999.99',
+                'systolic' => 'nullable|numeric|min:0|max:300',
+                'diastolic' => 'nullable|numeric|min:0|max:300',
                 'recorded_at' => 'required|date',
                 'lab_document' => 'nullable|file|mimes:jpeg,jpg,png,pdf|max:5120',
             ]);
@@ -264,6 +272,8 @@ class HealthRecordController extends Controller
                 'hdl' => $validated['hdl'] ?: null,
                 'ldl' => $validated['ldl'] ?: null,
                 'uric_acid' => $validated['uric_acid'] ?: null,
+                'systolic' => $validated['systolic'] ?: null,
+                'diastolic' => $validated['diastolic'] ?: null,
                 'recorded_at' => $validated['recorded_at'],
                 'type_document' => $documentType,
                 'lab_document' => $documentPath,

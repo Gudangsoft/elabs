@@ -16,7 +16,9 @@ class LabParameterService
         'triglycerides' => 'triglycerides',
         'hdl' => ['hdl_male', 'hdl_female'], // Array karena ada 2 parameter
         'ldl' => 'ldl',
-        'uric_acid' => ['uric_acid_male', 'uric_acid_female'] // Array karena ada 2 parameter
+        'uric_acid' => ['uric_acid_male', 'uric_acid_female'], // Array karena ada 2 parameter
+        'systolic' => 'systolic',
+        'diastolic' => 'diastolic'
     ];
 
     public function getParametersByCategory(): Collection
@@ -109,7 +111,9 @@ class LabParameterService
             'hdl_female' => 'hdl',
             'ldl' => 'ldl',
             'uric_acid_male' => 'uric_acid',
-            'uric_acid_female' => 'uric_acid'
+            'uric_acid_female' => 'uric_acid',
+            'systolic' => 'systolic',
+            'diastolic' => 'diastolic'
         ];
 
         return $map[$parameterCode] ?? null;
